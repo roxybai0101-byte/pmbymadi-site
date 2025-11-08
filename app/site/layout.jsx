@@ -1,13 +1,10 @@
 
-import "./globals.css";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "PM BY MADI — Permanent Makeup Studio",
-  description: "Красивая стартовая страница бренда PM BY MADI. Next.js + Vercel.",
+export const metadata = {
+  title: "PM BY MADI",
+  description: "Современный перманентный макияж. Запись скоро."
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <body>{children}</body>
