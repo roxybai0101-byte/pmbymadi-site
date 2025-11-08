@@ -1,0 +1,9 @@
+export { MarketingShell } from "./marketing-shell";
+export { HeroSection } from "./sections/hero";
+export { AboutSection } from "./sections/about";
+export { ServicesSection } from "./sections/services";
+export { AdvantagesSection } from "./sections/advantages";
+export { PortfolioSection } from "./sections/portfolio";
+export { ReviewsSection } from "./sections/reviews";
+export { FaqSection } from "./sections/faq";
+export { ContactSection } from "./sections/contacts";

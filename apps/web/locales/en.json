@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "defaultTitle": "PM BY MADI — premium permanent makeup",
+    "defaultDescription": "Premium permanent makeup: brows, lips, eyeliner. Certified pigments, gentle techniques and full aftercare.",
+    "servicesTitle": "Services",
+    "portfolioTitle": "Portfolio",
+    "reviewsTitle": "Reviews",
+    "faqTitle": "FAQ",
+    "contactsTitle": "Contacts",
+    "checkoutTitle": "Online payment"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "reviews": "Reviews",
+    "faq": "FAQ",
+    "contacts": "Contacts",
+    "book": "Book now"
+  },
+  "hero": {
+    "headline": "Premium Permanent Makeup: Brows, Lips, Lashes",
+    "subheadline": "Precision aesthetics, sterility and lasting results",
+    "ctaPrimary": "Book on WhatsApp",
+    "ctaSecondary": "View portfolio"
+  },
+  "about": {
+    "title": "About the studio",
+    "description": "PM BY MADI is an author studio where gentle techniques and certified pigments meet bespoke design. We craft long-lasting, delicate results that highlight natural beauty and save your time every morning."
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Five signature directions",
+    "duration": "Duration",
+    "price": "Price",
+    "book": "Book",
+    "learnMore": "Learn more"
+  },
+  "advantages": {
+    "title": "Why clients choose us",
+    "items": {
+      "sterility": {
+        "title": "Absolute sterility",
+        "description": "All instruments are sterilised in multiple stages, disposables are single-use only."
+      },
+      "pigments": {
+        "title": "Certified pigments",
+        "description": "Premium formulas with predictable fading and flattering natural tones."
+      },
+      "customShape": {
+        "title": "Tailored architecture",
+        "description": "Shapes designed for anatomy, asymmetry and your vision of beauty."
+      },
+      "softTechniques": {
+        "title": "Gentle techniques",
+        "description": "Advanced devices minimise trauma and speed up recovery."
+      },
+      "healingSupport": {
+        "title": "Healing support",
+        "description": "We stay in touch 24/7, guide you through care and answer every question."
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "filterAll": "All works",
+    "filter": {
+      "BROWS": "Brows",
+      "LIPS": "Lips",
+      "EYELIDS": "Lash line",
+      "REMOVAL": "Removal"
+    },
+    "cta": "See more on Instagram"
+  },
+  "reviews": {
+    "title": "Client reviews",
+    "subtitle": "We honour trust and flawless results",
+    "rating": "Rating"
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Still have questions? Send us a message."
+  },
+  "contacts": {
+    "title": "Contacts & booking",
+    "subtitle": "Choose your favourite channel or leave a request",
+    "address": "Address",
+    "hours": "Working hours",
+    "socials": "Socials & messengers",
+    "form": {
+      "name": "Name",
+      "phone": "Phone",
+      "service": "Service",
+      "comment": "Comment",
+      "submit": "Send to WhatsApp"
+    },
+    "success": "Message prepared. Opening WhatsApp…",
+    "error": "We couldn't create the message. Try again."
+  },
+  "footer": {
+    "rights": "© {{year}} PM BY MADI. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "booking": {
+    "title": "Book online",
+    "subtitle": "Leave your contacts — we will suggest the perfect solution.",
+    "whatsapp": "Chat on WhatsApp",
+    "telegram": "Chat on Telegram",
+    "call": "Call"
+  },
+  "stripe": {
+    "title": "Online payment",
+    "description": "Pay a deposit or purchase a gift certificate via Stripe Checkout.",
+    "pay": "Pay now",
+    "success": {
+      "title": "Thank you for your payment!",
+      "description": "We've received it and will contact you shortly to confirm your appointment."
+    },
+    "cancel": {
+      "title": "Payment cancelled",
+      "description": "You can try again later or choose another payment method."
+    }
+  },
+  "admin": {
+    "login": {
+      "title": "Admin sign-in",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "error": "Invalid email or password"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "reviews": "Reviews",
+      "faq": "FAQ",
+      "published": "Published",
+      "drafts": "Drafts"
+    }
+  }
+}

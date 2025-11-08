@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum PortfolioTag {
+  BROWS
+  LIPS
+  EYELIDS
+  REMOVAL
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Service {
+  id              String         @id @default(cuid())
+  slug            String         @unique
+  title           Json
+  description     Json
+  duration        String?
+  price           Int?
+  seoTitle        Json?
+  seoDescription  Json?
+  published       Boolean        @default(false)
+  order           Int            @default(0)
+  portfolioItems  PortfolioItem[]
+  payments        Payment[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+model PortfolioItem {
+  id           String        @id @default(cuid())
+  title        Json?
+  alt          Json
+  imageUrl     String
+  publicId     String
+  blurDataUrl  String?
+  tag          PortfolioTag
+  order        Int           @default(0)
+  published    Boolean       @default(false)
+  serviceId    String?
+  service      Service?      @relation(fields: [serviceId], references: [id])
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  name      Json
+  rating    Int
+  text      Json
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FaqItem {
+  id        String   @id @default(cuid())
+  question  Json
+  answer    Json
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Settings {
+  id                    Int      @id @default(1)
+  localeDefault         String   @default("ru")
+  brandStatement        Json?
+  seoTitle              Json?
+  seoDescription        Json?
+  defaultOgImage        String?
+  contactEmail          String?
+  phoneNumber           String?
+  whatsappPhone         String?
+  telegramBotUsername   String?
+  telegramAdminChatId   String?
+  instagramUrl          String?
+  telegramUrl           String?
+  address               String?
+  mapUrl                String?
+  stripePriceId         String?
+  stripeSuccessUrl      String?
+  stripeCancelUrl       String?
+  gaMeasurementId       String?
+  ymCounterId           String?
+  resendFromEmail       String?
+  telegramNotifications Boolean  @default(false)
+  emailNotifications    Boolean  @default(false)
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}
+
+model Payment {
+  id                  String    @id @default(cuid())
+  stripeSessionId     String    @unique
+  stripePaymentIntent String?
+  status              String
+  amount              Int
+  currency            String    @default("usd")
+  customerEmail       String?
+  customerName        String?
+  serviceId           String?
+  service             Service?  @relation(fields: [serviceId], references: [id])
+  metadata            Json?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model Lead {
+  id             String   @id @default(cuid())
+  name           String
+  phone          String
+  locale         String   @default("ru")
+  serviceName    String?
+  comment        String?
+  source         String   @default("web")
+  notifiedEmail  Boolean  @default(false)
+  notifiedTelegram Boolean @default(false)
+  createdAt      DateTime @default(now())
+}
