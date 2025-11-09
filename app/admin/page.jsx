@@ -1,14 +1,14 @@
-"use client";
+use client";
 
 import { useState } from "react";
 
-import site from "../../data/site.json";
-import services from "../../data/services.json";
-import gallery from "../../data/gallery.json";
-import features from "../../data/features.json";
-import faq from "../../data/faq.json";
-import reviews from "../../data/reviews.json";
-import seo from "../../data/seo.json";
+import site from "../../../data/site.json";
+import services from "../../../data/services.json";
+import gallery from "../../../data/gallery.json";
+import features from "../../../data/features.json";
+import faq from "../../../data/faq.json";
+import reviews from "../../../data/reviews.json";
+import seo from "../../../data/seo.json";
 
 export default function AdminPage() {
   const [password, setPassword] = useState("");
