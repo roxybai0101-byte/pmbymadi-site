@@ -4,19 +4,21 @@ import Card from "../components/Card";
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 import Section from "../components/Section";
+import PriceList from "../components/PriceList";
 
 const services = PRICES;
   {
-    title: "Пудровые брови",
+    <PriceList />    title: "Пудровые брови",
     description:
       "Воздушная пиксельная растушёвка, подчеркивающая природную густоту и архитектуру бровей. Без резких границ и плотностей.",
-    price: "от 220 BYN"
+    price: " 12000
+        "
   },
   {
     title: "Губы",
     description:
       "Сатиновая нежность, выравнивание контура и деликатное напыление цвета. Градиенты, придающие свежий тон и ухоженность.",
-    price: "от 250 BYN"
+    price: " 12000 "
   },
   {
     title: "Межресничка",
