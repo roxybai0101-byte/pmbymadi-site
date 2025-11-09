@@ -207,63 +207,36 @@ export default function HomePage() {
       
      <priceList />
       
-      <Section
-        id="gallery"
-        eyebrow="Портфолио"
-        title="До / После"
-        description="Серия образов с лёгким перманентом. Линии, оттенки и пиксели — все подчинено гармонии и комфорту."
-      > {/*список файлов галереи */}
-        {[     
-    "portfolio-01.JPG",
-    "portfolio-02.JPG",
-    "portfolio-03.JPG",
+  <Section
+  id="gallery"
+  eyebrow="Портфолио"
+  title="До / После"
+  description="Серия образов с лёгким перманентом. Линии, оттенки и пиксели — всё подчинено гармонии и комфорту."
+>
+  <div className="grid gap-5 md:grid-cols-3">
+    {[
+      "portfolio-01.JPG",
+      "portfolio-02.JPG",
+      "portfolio-03.JPG",
       "portfolio-04.JPG",
-        "portfolio-05.JPG",
-          "portfolio-06.JPG", 
+      "portfolio-05.JPG",
+      "portfolio-06.JPG",
     ].map((item, index) => (
-      
-      <div className="grid gap-5 md:grid-cols-3">
-        {galleryPlaceholders.map((item, index) => (
-  <div
-    key={item}
-    className="group relative overflow-hidden rounded-[30px] border border-white/50 bg-white/70 p-4 shadow-soft"
-    style={{ animationDelay: `${0.1 * index + 0.4}s` }}
-  >
-    {/* Фото */}
-    <div className="relative h-64 w-full overflow-hidden rounded-[26px]">
-      <img
-        src={`/ ${item}`} //
-        alt={`Работа ${index + 1}`}
-        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-      />
-    </div>
-
-    {/* Текст поверх */}
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-      <span className="text-lg uppercase tracking-[0.6em] text-ink/20">
-        Before / After
-      </span>
-    </div>
-
-    {/* Рамка */}
-    <div className="absolute inset-6 rounded-[24px] border border-white/70 pointer-events-none" />
+      <div
+        key={item}
+        className="group relative overflow-hidden rounded-[30px] border border-white/50 shadow-soft"
+      >
+        <img
+          src={`/${item}`}
+          alt={`Работа ${index + 1}`}
+          className="h-64 w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    ))}
   </div>
-))}
-            <div
-              key={item}
-              className="group relative overflow-hidden rounded-[30px] border border-white/50 bg-white/70 p-4 shadow-soft backdrop-blur animate-fade-up"
-              style={{ animationDelay: `${0.1 * index + 0.4}s` }}
-            >
-              <div className="relative h-64 w-full overflow-hidden rounded-[26px] bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
-                <div className="absolute inset-0 flex items-center justify-center text-ink/20">
-                  <span className="text-lg uppercase tracking-[0.6em]">Before / After</span>
-                </div>
-                <div className="absolute inset-6 rounded-[24px] border border-white/70" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
+</Section>
+          
 
       <Section className="pb-24 md:pb-32" align="center">
         <CTA
