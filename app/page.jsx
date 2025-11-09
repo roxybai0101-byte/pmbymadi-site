@@ -212,7 +212,16 @@ export default function HomePage() {
         eyebrow="Портфолио"
         title="До / После"
         description="Серия образов с лёгким перманентом. Линии, оттенки и пиксели — все подчинено гармонии и комфорту."
-      >
+      > {/*список файлов галереи */}
+        {[     
+    "portfolio-01.JPG",
+    "portfolio-02.JPG",
+    "portfolio-03.JPG",
+      "portfolio-04.JPG",
+        "portfolio-05.JPG",
+          "portfolio-06.JPG", 
+    ].map((item, index) => (
+      
       <div className="grid gap-5 md:grid-cols-3">
         {galleryPlaceholders.map((item, index) => (
   <div
