@@ -6,34 +6,26 @@ import Section from "../components/Section";
 import prices from "@/data/prices.json";
 import gallery from "@/data/gallery.json";
 import links from "@/data/links.json";
-
 import services from "@/data/services.json";
 import features from "@/data/features.json";
 import reviews from "@/data/reviews.json";
 import faq from "@/data/faq.json";
 import site from "@/data/site.json";
+import gallery from "@/data/gallery.json";
 
 export default function HomePage() {
-  const galleryPlaceholders = [
-    "portfolio-01.JPG",
-    "portfolio-02.JPG",
-    "portfolio-03.JPG",
-    "portfolio-04.JPG",
-    "portfolio-05.JPG",
-    "portfolio-06.JPG"
-  ];
-
   return (
     <div className="relative overflow-hidden">
       <div className="max-w-4xl mx-auto flex flex-col gap-20 px-5 pb-28 pt-16">
 
-        {/* УСЛУГИ */}
+        {/* ✅ УСЛУГИ */}
         <section className="space-y-6">
           <h2 className="text-3xl font-bold">Услуги</h2>
+
           <div className="space-y-4">
-            {services.map((item, idx) => (
+            {services.map((item, i) => (
               <div
-                key={idx}
+                key={i}
                 className="flex justify-between p-4 rounded-xl border bg-white/60 backdrop-blur shadow-sm"
               >
                 <span className="font-semibold">{item.title}</span>
@@ -43,23 +35,23 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ГАЛЕРЕЯ До/После */}
+        {/* ✅ ГАЛЕРЕЯ */}
         <section id="gallery" className="space-y-6">
           <h2 className="text-3xl font-bold">До / После</h2>
           <p className="text-ink/70">
-            Серия образов с лёгким перманентом. Линии, оттенки и пиксели — всё подчинено гармонии и комфорту.
+            Натуральный результат: мягкие пиксели, аккуратные оттенки, чистая форма.
           </p>
 
           <div className="grid gap-5 md:grid-cols-3">
-            {galleryPlaceholders.map((item, index) => (
+            {gallery.map((item, i) => (
               <div
-                key={item}
-                className="group relative overflow-hidden rounded-[30px] border border-white/50 bg-white/60 p-4 shadow-soft transition hover:shadow-lg"
+                key={i}
+                className="group relative overflow-hidden rounded-[30px] border border-white/50 bg-white/60 p-4 shadow-soft hover:shadow-lg transition"
               >
                 <div className="relative h-64 w-full overflow-hidden rounded-[26px]">
                   <img
-                    src={/${item}}
-                    alt={Работа ${index + 1}}
+                    src={/${item.file}}
+                    alt={item.title}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     loading="lazy"
                   />
@@ -67,7 +59,7 @@ export default function HomePage() {
 
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <span className="text-lg uppercase tracking-[0.6em] text-ink/20">
-                    Before / After
+                    {item.tag}
                   </span>
                 </div>
 
@@ -77,7 +69,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ПРЕИМУЩЕСТВА */}
+        {/* ✅ ПОЧЕМУ ВЫБИРАЮТ МЕНЯ */}
         <section className="space-y-6">
           <h2 className="text-3xl font-bold">Почему выбирают меня</h2>
           <div className="grid gap-5 md:grid-cols-3">
@@ -90,9 +82,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ОТЗЫВЫ */}
+        {/* ✅ ОТЗЫВЫ */}
         <section className="space-y-6">
           <h2 className="text-3xl font-bold">Отзывы</h2>
+
           <div className="grid gap-5 md:grid-cols-3">
             {reviews.map((r, i) => (
               <div key={i} className="p-5 rounded-2xl border bg-white/60 shadow-sm">
@@ -102,13 +95,13 @@ export default function HomePage() {
                   </div>
                   <div className="font-medium">{r.name}</div>
                 </div>
+
                 <p className="text-ink/80">{r.text}</p>
+
                 {r.rating && (
                   <div className="mt-2 text-amber-500" aria-label={Рейтинг ${r.rating} из 5}>
                     {"★★★★★".slice(0, r.rating)}
-                    <span className="opacity-30">
-                      {"★★★★★".slice(r.rating)}
-                    </span>
+                    <span className="opacity-30">{"★★★★★".slice(r.rating)}</span>
                   </div>
                 )}
               </div>
@@ -116,9 +109,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* ✅ FAQ */}
         <section className="space-y-6">
           <h2 className="text-3xl font-bold">Частые вопросы</h2>
+
           <div className="space-y-4">
             {faq.map((item, i) => (
               <details
@@ -134,7 +128,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* ✅ CTA */}
         <section className="pb-24 md:pb-32" align="center">
           <div className="inline-flex items-center gap-3 rounded-2xl border bg-white/70 px-5 py-4 shadow-sm animate-fade-up">
             <a
@@ -143,6 +137,7 @@ export default function HomePage() {
             >
               {site.ctaText || "Записаться"}
             </a>
+
             {site.email && (
               <a
                 className="opacity-70 hover:opacity-100 transition"
@@ -153,6 +148,7 @@ export default function HomePage() {
             )}
           </div>
         </section>
+
       </div>
     </div>
   );
