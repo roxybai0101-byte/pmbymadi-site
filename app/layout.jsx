@@ -18,45 +18,51 @@ const sans = Manrope({
   display: "swap"
 });
 
+// app/layout.jsx
 export const metadata = {
-  metadataBase: new URL("https://pm-by-madi.vercel.app"),
-  title: "PM BY MADI — Современный перманентный макияж",
+  metadataBase: new URL("https://pmbymadi-site-wq38.vercel.app"),
+  title: {
+    default: "PM BY MADI — Современный перманентный макияж",
+    template: "%s | PM BY MADI",
+  },
   description:
-    "Premium студия перманентного макияжа PM BY MADI. Натуральная эстетика, авторские техники и безупречный сервис в бровях, губах и межресничном пространстве.",
+    "Современный перманентный макияж в Минске: пудровые брови, губы, межресничка. Натуральная эстетика, авторские техники, запись в Telegram.",
   keywords: [
     "перманентный макияж",
+    "Москва",
     "пудровые брови",
     "перманент губ",
-    "перманент межресничка",
+    "межресничка",
     "PM BY MADI",
-    "Минск перманент",
-    "современный перманентный макияж"
+    "мастер татуажа"
   ],
+  authors: [{ name: "PM BY MADI" }],
+  creator: "PM BY MADI",
+  alternates: {
+    canonical: "https://pmbymadi-site-wq38.vercel.app/",
+  },
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
-    title: "PM BY MADI — Premium Permanent Makeup",
-    description:
-      "Натуральная эстетика. Пудровые брови, губы, межресничка — деликатные техники перманента от MADI.",
-    url: "https://pm-by-madi.vercel.app",
-    siteName: "PM BY MADI",
     type: "website",
-    locale: "ru_RU",
+    url: "https://pmbymadi-site-wq38.vercel.app/",
+    siteName: "PM BY MADI",
+    title: "PM BY MADI — Современный перманентный макияж",
+    description:
+      "Пудровые брови, губы и межресничка в натуральной эстетике. Запись в Telegram.",
     images: [
-      {
-        url: "/og-image.svg",
-        width: 1200,
-        height: 630,
-        alt: "PM BY MADI — Современный перманентный макияж"
-      }
-    ]
+      { url: "/og-image.svg", width: 1200, height: 630, alt: "PM BY MADI" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "PM BY MADI — Современный перманентный макияж",
     description:
-      "Premium студия перманентного макияжа. Натуральная эстетика и деликатные техники для бровей, губ и глаз.",
-    creator: "@pm_by_madi",
-    images: ["/og-image.svg"]
+      "Пудровые брови, губы и межресничка. Натуральный и аккуратный результат.",
+    images: ["/og-image.svg"],
   },
+};
   robots: {
     index: true,
     follow: true
