@@ -223,7 +223,7 @@ export default function HomePage() {
     {/* Фото */}
     <div className="relative h-64 w-full overflow-hidden rounded-[26px]">
       <img
-        src={`/${item}`}
+        src={`/ ${item}`}
         alt={`Работа ${index + 1}`}
         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
       />
