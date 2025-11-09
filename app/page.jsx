@@ -94,7 +94,19 @@ const features = [
 ];
 
 export default function HomePage() {
-  return (
+  //список файлов галереи 
+  const galleryPlaceholders = [
+   "portfolio-01.JPG",
+    "portfolio-02.JPG",
+    "portfolio-03.JPG",
+      "portfolio-04.JPG",
+        "portfolio-05.JPG",
+          "portfolio-06.JPG", 
+    ];
+  return (  
+    
+    <div
+      key={item}
     <>
       <div className="relative overflow-hidden">
         <div className="mx-auto flex min-h-[70vh] w-full max-w-6xl flex-col gap-16 px-6 pb-20 pt-10 md:flex-row md:items-center md:gap-20 md:px-8">
@@ -202,7 +214,32 @@ export default function HomePage() {
         description="Серия образов с лёгким перманентом. Линии, оттенки и пиксели — все подчинено гармонии и комфорту."
       >
         <div className="grid gap-5 md:grid-cols-3">
-          {galleryPlaceholders.map((item, index) => (
+          galleryPlaceholders.map((item, index) => (
+  <div
+    key={item}
+    className="group relative overflow-hidden rounded-[30px] border border-white/50 bg-white/70 p-4 shadow-soft"
+    style={{ animationDelay: `${0.1 * index + 0.4}s` }}
+  >
+    {/* Фото */}
+    <div className="relative h-64 w-full overflow-hidden rounded-[26px]">
+      <img
+        src={`/gallery/${item}`}
+        alt={`Работа ${index + 1}`}
+        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+      />
+    </div>
+
+    {/* Текст поверх */}
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <span className="text-lg uppercase tracking-[0.6em] text-ink/20">
+        Before / After
+      </span>
+    </div>
+
+    {/* Рамка */}
+    <div className="absolute inset-6 rounded-[24px] border border-white/70 pointer-events-none" />
+  </div>
+))}
             <div
               key={item}
               className="group relative overflow-hidden rounded-[30px] border border-white/50 bg-white/70 p-4 shadow-soft backdrop-blur animate-fade-up"
