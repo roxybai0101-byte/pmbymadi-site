@@ -207,39 +207,25 @@ export default function HomePage() {
       
      <priceList />
       
- <Section
+<Section
   id="gallery"
   eyebrow="Портфолио"
   title="До / После"
   description="Серия образов с лёгким перманентом. Линии, оттенки и пиксели — всё подчинено гармонии и комфорту."
 >
   <div className="grid gap-5 md:grid-cols-3">
-    {[
-      "portfolio-01.JPG",
-      "portfolio-02.JPG",
-      "portfolio-03.JPG",
-      "portfolio-04.JPG",
-      "portfolio-05.JPG",
-      "portfolio-06.JPG",
-    ].map((item, index) => (
-      <div
-        key={item}
-        className="relative overflow-hidden rounded-[26px] border border-white/70 bg-white/50 shadow-soft"
-      >
+    {galleryPlaceholders.map((item, index) => (
+      <div key={item}>
         <img
           src={`/${item}`}
           alt={`Работа ${index + 1}`}
-          className="block w-full h-64 object-cover"
-          loading="eager"
+          className="h-64 w-full object-cover"
+          loading="lazy"
         />
-        <span className="pointer-events-none absolute inset-x-0 bottom-0 p-3 text-center text-ink/60 text-sm">
-          Before / After
-        </span>
       </div>
     ))}
   </div>
 </Section>
-          
 
       <Section className="pb-24 md:pb-32" align="center">
         <CTA
