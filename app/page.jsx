@@ -94,7 +94,7 @@ const features = [
 ];
 
 export default function HomePage() {
-  //список файлов галереи 
+  //список файлов в галереи 
   const galleryPlaceholders = [
    "portfolio-01.JPG",
     "portfolio-02.JPG",
@@ -104,7 +104,7 @@ export default function HomePage() {
           "portfolio-06.JPG", 
     ];
   return (  
-    
+  
     <div
       key={item}
     <>
@@ -213,8 +213,8 @@ export default function HomePage() {
         title="До / После"
         description="Серия образов с лёгким перманентом. Линии, оттенки и пиксели — все подчинено гармонии и комфорту."
       >
-        <div className="grid gap-5 md:grid-cols-3">
-          galleryPlaceholders.map((item, index) => (
+      <div className="grid gap-5 md:grid-cols-3">
+        {galleryPlaceholders.map((item, index) => (
   <div
     key={item}
     className="group relative overflow-hidden rounded-[30px] border border-white/50 bg-white/70 p-4 shadow-soft"
@@ -223,7 +223,7 @@ export default function HomePage() {
     {/* Фото */}
     <div className="relative h-64 w-full overflow-hidden rounded-[26px]">
       <img
-        src={`/ ${item}`}
+        src={`/ ${item}`} //
         alt={`Работа ${index + 1}`}
         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
       />
