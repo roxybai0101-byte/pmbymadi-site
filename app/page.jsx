@@ -1,11 +1,11 @@
 import Button from "../components/Button"; 
-import PriceList from "../components/PriceList";
+import PriceList from "../data/prices";
 import Card from "../components/Card";
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 import Section from "../components/Section";
 
-const services = [
+const services = PRICES;
   {
     title: "Пудровые брови",
     description:
