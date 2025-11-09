@@ -1,10 +1,32 @@
-{
-  "items": [
-    "/portfolio-01.JPG",
-    "/portfolio-02.JPG",
-    "/portfolio-03.JPG",
-    "/portfolio-04.JPG",
-    "/portfolio-05.JPG",
-    "/portfolio-06.JPG"
-  ]
-}
+[
+  {
+    "file": "portfolio-01.JPG",
+    "title": "Пудровые брови — мягкая растушёвка",
+    "tag": "Before/After"
+  },
+  {
+    "file": "portfolio-02.JPG",
+    "title": "Губы — натуральный розовый",
+    "tag": "Before/After"
+  },
+  {
+    "file": "portfolio-03.JPG",
+    "title": "Межресничка — подчёркивает взгляд",
+    "tag": "Before/After"
+  },
+  {
+    "file": "portfolio-04.JPG",
+    "title": "Плотности нет — только пиксели",
+    "tag": "Before/After"
+  },
+  {
+    "file": "portfolio-05.JPG",
+    "title": "Естественный контур",
+    "tag": "Before/After"
+  },
+  {
+    "file": "portfolio-06.JPG",
+    "title": "Мягкая графика без боли и корок",
+    "tag": "Before/After"
+  }
+]
