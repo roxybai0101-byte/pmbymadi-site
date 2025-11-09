@@ -1,70 +1,67 @@
-import "./globals.css";
+import "@/globals.css";
 import Script from "next/script";
+import seo from "@/data/seo.json";
+import site from "@/data/site.json";
 
 export const metadata = {
-  title: "PM BY MADI — Современный перманентный макияж",
-  description:
-    "Пудровые брови, губы и межресничка в натуральной эстетике. Запись в Telegram.",
+  title: seo.title,
+  description: seo.description,
   openGraph: {
-    title: "PM BY MADI — Современный перманентный макияж",
-    description:
-      "Пудровые брови, губы и межресничка: естественный и аккуратный результат.",
-    url: "https://pmby-madi-site-wq38.vercel.app/",
-    siteName: "PM BY MADI",
+    title: seo.title,
+    description: seo.description,
+    url: seo.url,
     images: [
       {
-        url: "/og-image.svg",
+        url: seo.ogImage,
         width: 1200,
         height: 630,
-        alt: "PM BY MADI",
-      },
+        alt: site.brand
+      }
     ],
     locale: "ru_RU",
-    type: "website",
+    type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "PM BY MADI — Современный перманентный макияж",
-    description: "Пудровые брови, губы, межресничка — натуральный результат.",
-    images: ["/og-image.svg"],
+    title: seo.title,
+    description: seo.description,
+    images: [seo.ogImage]
   },
+  robots: {
+    index: true,
+    follow: true
+  }
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <head>
-        {/* Канонический URL */}
-        <link
-          rel="canonical"
-          href="https://pmby-madi-site-wq38.vercel.app/"
-        />
+        <link rel="canonical" href={seo.url} />
 
-        {/* JSON-LD Schema.org */}
+        {/* JSON-LD */}
         <Script
-          id="ldjson"
+          id="json-ld"
           type="application/ld+json"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BeautySalon",
-              name: "PM BY MADI",
-              url: "https://pmby-madi-site-wq38.vercel.app/",
-              image: "https://pmby-madi-site-wq38.vercel.app/og-image.svg",
-              description:
-                "Современный перманентный макияж: пудровые брови, губы и межресничная линия.",
+              name: site.brand,
+              url: seo.url,
+              image: seo.ogImage,
+              description: seo.description,
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "Москва",
-                addressCountry: "RU",
+                addressLocality: seo.city,
+                addressCountry: seo.country
               },
-              sameAs: ["https://t.me/pm_by_madi"],
-            }),
+              sameAs: [site.telegram]
+            })
           }}
         />
       </head>
-
       <body className="bg-ivory text-ink">{children}</body>
     </html>
   );
