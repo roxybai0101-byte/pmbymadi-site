@@ -1,4 +1,5 @@
-import Button from "../components/Button";
+import Button from "../components/Button"; 
+import PriceList from "../components/PriceList";
 import Card from "../components/Card";
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
@@ -190,8 +191,10 @@ export default function HomePage() {
             />
           ))}
         </div>
-      </Section>
-
+      </Section> 
+      
+     <priceList />
+      
       <Section
         id="gallery"
         eyebrow="Портфолио"
