@@ -7,8 +7,11 @@ import prices from "@/data/prices.json";
 import gallery from "@/data/gallery.json";
 import links from "@/data/links.json";
 
-mport Image from "next/image";
 import services from "@/data/services.json";
+import features from "@/data/features.json";
+import reviews from "@/data/reviews.json";
+import faq from "@/data/faq.json";
+import site from "@/data/site.json";
 
 export default function HomePage() {
   const galleryPlaceholders = [
@@ -17,37 +20,35 @@ export default function HomePage() {
     "portfolio-03.JPG",
     "portfolio-04.JPG",
     "portfolio-05.JPG",
-    "portfolio-06.JPG",
+    "portfolio-06.JPG"
   ];
 
   return (
     <div className="relative overflow-hidden">
-      <div className="max-w-4xl mx-auto flex flex-col gap-16 px-5 pb-28 pt-16">
-        
-        {/* Блок — Услуги */}
-        <div className="flex flex-col gap-8 animate-fade-up">
-          <h2 className="text-3xl font-bold">Услуги</h2>
+      <div className="max-w-4xl mx-auto flex flex-col gap-20 px-5 pb-28 pt-16">
 
+        {/* УСЛУГИ */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold">Услуги</h2>
           <div className="space-y-4">
-            {services.map((item, index) => (
+            {services.map((item, idx) => (
               <div
-                key={index}
+                key={idx}
                 className="flex justify-between p-4 rounded-xl border bg-white/60 backdrop-blur shadow-sm"
               >
                 <span className="font-semibold">{item.title}</span>
-                <span>{item.price}</span>
+                <span className="opacity-80">{item.price}</span>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        <div className="space-y-4">
-          <h2 className="text-3xl font-bold">Почему выбирают меня?</h2>
-        </div>
-
-        {/* Блок — Галерея (До/После) */}
-        <section id="gallery" className="space-y-8">
+        {/* ГАЛЕРЕЯ До/После */}
+        <section id="gallery" className="space-y-6">
           <h2 className="text-3xl font-bold">До / После</h2>
+          <p className="text-ink/70">
+            Серия образов с лёгким перманентом. Линии, оттенки и пиксели — всё подчинено гармонии и комфорту.
+          </p>
 
           <div className="grid gap-5 md:grid-cols-3">
             {galleryPlaceholders.map((item, index) => (
@@ -73,6 +74,83 @@ export default function HomePage() {
                 <div className="absolute inset-6 rounded-[24px] border border-white/70 pointer-events-none" />
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* ПРЕИМУЩЕСТВА */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold">Почему выбирают меня</h2>
+          <div className="grid gap-5 md:grid-cols-3">
+            {features.map((f, i) => (
+              <div key={i} className="p-5 rounded-2xl border bg-white/60 shadow-sm">
+                <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
+                <p className="text-ink/70">{f.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ОТЗЫВЫ */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold">Отзывы</h2>
+          <div className="grid gap-5 md:grid-cols-3">
+            {reviews.map((r, i) => (
+              <div key={i} className="p-5 rounded-2xl border bg-white/60 shadow-sm">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="h-8 w-8 rounded-full bg-ink/10 flex items-center justify-center text-xs">
+                    {r.name.slice(0, 1).toUpperCase()}
+                  </div>
+                  <div className="font-medium">{r.name}</div>
+                </div>
+                <p className="text-ink/80">{r.text}</p>
+                {r.rating && (
+                  <div className="mt-2 text-amber-500" aria-label={Рейтинг ${r.rating} из 5}>
+                    {"★★★★★".slice(0, r.rating)}
+                    <span className="opacity-30">
+                      {"★★★★★".slice(r.rating)}
+                    </span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold">Частые вопросы</h2>
+          <div className="space-y-4">
+            {faq.map((item, i) => (
+              <details
+                key={i}
+                className="rounded-2xl border bg-white/60 shadow-sm p-4"
+              >
+                <summary className="cursor-pointer font-semibold select-none">
+                  {item.q}
+                </summary>
+                <p className="mt-2 text-ink/80">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="pb-24 md:pb-32" align="center">
+          <div className="inline-flex items-center gap-3 rounded-2xl border bg-white/70 px-5 py-4 shadow-sm animate-fade-up">
+            <a
+              href={site.telegram || "#"}
+              className="px-4 py-2 rounded-xl border bg-ink text-white hover:opacity-90 transition"
+            >
+              {site.ctaText || "Записаться"}
+            </a>
+            {site.email && (
+              <a
+                className="opacity-70 hover:opacity-100 transition"
+                href={mailto:${site.email}}
+              >
+                {site.email}
+              </a>
+            )}
           </div>
         </section>
       </div>
