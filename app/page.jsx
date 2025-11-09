@@ -3,6 +3,9 @@ import Card from "../components/Card";
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 import Section from "../components/Section";
+import prices from "@/data/prices.json";
+import gallery from "@/data/gallery.json";
+import links from "@/data/links.json";
 
 const services = [
   {
