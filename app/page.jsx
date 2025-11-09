@@ -7,7 +7,7 @@ import prices from "@/data/prices.json";
 import gallery from "@/data/gallery.json";
 import links from "@/data/links.json";
 
-const services = [
+import services from "@/data/services.json";
   {
     title: "Пудровые брови",
     description:
