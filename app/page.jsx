@@ -207,7 +207,7 @@ export default function HomePage() {
       
      <priceList />
       
-  <Section
+ <Section
   id="gallery"
   eyebrow="Портфолио"
   title="До / После"
@@ -224,14 +224,17 @@ export default function HomePage() {
     ].map((item, index) => (
       <div
         key={item}
-        className="group relative overflow-hidden rounded-[30px] border border-white/50 shadow-soft"
+        className="relative overflow-hidden rounded-[26px] border border-white/70 bg-white/50 shadow-soft"
       >
         <img
           src={`/${item}`}
           alt={`Работа ${index + 1}`}
-          className="h-64 w-full object-cover"
-          loading="lazy"
+          className="block w-full h-64 object-cover"
+          loading="eager"
         />
+        <span className="pointer-events-none absolute inset-x-0 bottom-0 p-3 text-center text-ink/60 text-sm">
+          Before / After
+        </span>
       </div>
     ))}
   </div>
