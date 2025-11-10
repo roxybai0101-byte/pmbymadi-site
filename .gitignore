@@ -1,0 +1,12 @@
+.next
+node_modules
+.env
+*.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+dist
+.DS_Store
+*.sqlite
+prisma/dev.db
+public/uploads
