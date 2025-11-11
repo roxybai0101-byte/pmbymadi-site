@@ -5,8 +5,9 @@
 @layer base {
   :root {
     color-scheme: light;
-    --header-height: 84px;
-    background-color: theme("colors.ivory");
+    --radius: 1.5rem;
+    --header-height: 88px;
+    background-color: theme("colors.brand.powder");
   }
 
   html {
@@ -14,7 +15,7 @@
   }
 
   body {
-    @apply bg-ivory text-ink antialiased;
+    @apply bg-brand-powder text-brand-chocolate antialiased;
     font-feature-settings: "liga" 1, "kern" 1;
   }
 
@@ -22,43 +23,54 @@
   h2,
   h3,
   h4,
-  h5 {
-    @apply font-serif tracking-tight text-ink;
+  h5,
+  h6 {
+    @apply font-serif tracking-tight text-brand-chocolate;
   }
 
-  main {
-    padding-top: var(--header-height);
+  ::selection {
+    @apply bg-brand-gold/70 text-brand-white;
   }
 }
 
 @layer components {
   .section-padding {
-    @apply py-16 md:py-24;
-  }
-
-  .glass-card {
-    @apply rounded-[32px] border border-white/60 bg-white/70 backdrop-blur-xl transition-all duration-500 ease-out;
-  }
-
-  .gradient-border {
-    background:
-      linear-gradient(theme("colors.ivory"), theme("colors.ivory")) padding-box,
-      linear-gradient(135deg, rgba(201, 165, 129, 0.6), rgba(255, 255, 255, 0.3)) border-box;
-    border: 1px solid transparent;
-    border-radius: 32px;
+    @apply py-16 md:py-24 lg:py-28;
   }
 
   .badge {
-    @apply inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/70 px-4 py-2 text-xs uppercase tracking-[0.4em] text-ink/60;
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-gold/20 bg-brand-white/70 px-4 py-1.5 text-xs uppercase tracking-[0.4em] text-brand-cocoa;
   }
 
   .eyebrow {
-    @apply text-xs font-medium uppercase tracking-[0.4em] text-ink/50;
+    @apply text-xs font-medium uppercase tracking-[0.45em] text-brand-cocoa/70;
+  }
+
+  .soft-card {
+    @apply rounded-3xl border border-brand-warm/40 bg-brand-white/80 p-6 shadow-soft backdrop-blur;
   }
 }
 
 @layer utilities {
   .mask-gradient {
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+  }
+
+  .fade-border {
+    position: relative;
+  }
+
+  .fade-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(200, 169, 106, 0.25), rgba(107, 79, 79, 0.12));
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
   }
 }

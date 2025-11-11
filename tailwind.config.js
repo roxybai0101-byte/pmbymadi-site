@@ -1,59 +1,77 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-      "./app/**/*.{js,jsx,ts,tsx,md,mdx}",
-      "./components/**/*.{js,jsx,ts,tsx}",
-      "./pages/**/*.{js,jsx,ts,tsx}",
-      "./src/**/*.{js,jsx,ts,tsx}"
-    ],
+  darkMode: ["class"],
+  content: [
+    "./app/**/*.{js,jsx,ts,tsx,md,mdx}",
+    "./components/**/*.{js,jsx,ts,tsx}",
+    "./lib/**/*.{js,jsx,ts,tsx}",
+    "./content/**/*.{md,mdx}"
+  ],
   theme: {
+    container: {
+      center: true,
+      padding: "1.5rem",
+      screens: {
+        "2xl": "1280px"
+      }
+    },
     extend: {
       colors: {
-        sand: {
-          50: "#fdf9f3",
-          100: "#f6ebdd",
-          200: "#ecd9c1",
-          300: "#dfc1a1",
-          400: "#c9a581",
-          500: "#b38b66",
-          600: "#997454",
-          700: "#7c5a44",
-          800: "#654838",
-          900: "#533c30"
+        brand: {
+          powder: "#F3E9E4",
+          warm: "#EAD8C8",
+          cocoa: "#6B4F4F",
+          chocolate: "#2B1F1F",
+          gold: "#C8A96A",
+          white: "#FFFFFF"
         },
-        ink: "#1f1b18",
-        ivory: "#faf6f0"
-      },
-      fontFamily: {
-        serif: ["var(--font-serif)", "serif"],
-        sans: ["var(--font-sans)", "sans-serif"]
-      },
-      boxShadow: {
-        soft: "0 20px 45px rgba(31, 27, 24, 0.08)",
-        glow: "0 15px 35px rgba(201, 165, 129, 0.25)"
+        background: "#FDF9F6",
+        foreground: "#2B1F1F",
+        border: "#EAD8C8",
+        muted: {
+          DEFAULT: "#F3E9E4",
+          foreground: "#6B4F4F"
+        },
+        accent: {
+          DEFAULT: "#EAD8C8",
+          foreground: "#2B1F1F"
+        },
+        ring: "#C8A96A"
       },
       borderRadius: {
-        xl: "1.5rem"
+        "2xl": "1.5rem",
+        "3xl": "2rem",
+        xl: "1.25rem"
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "Inter", "sans-serif"],
+        serif: ["var(--font-serif)", "Playfair Display", "serif"]
+      },
+      boxShadow: {
+        ambient: "0 24px 80px rgba(43, 31, 31, 0.12)",
+        soft: "0 10px 30px rgba(107, 79, 79, 0.12)",
+        subtle: "0 6px 24px rgba(200, 169, 106, 0.18)"
       },
       keyframes: {
         "fade-up": {
-          "0%": { opacity: 0, transform: "translateY(24px)" },
+          "0%": { opacity: 0, transform: "translateY(16px)" },
           "100%": { opacity: 1, transform: "translateY(0)" }
         },
         "fade-in": {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 }
+        },
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" }
         }
       },
       animation: {
-        "fade-up": "fade-up 0.8s ease-out forwards",
-        "fade-in": "fade-in 0.6s ease-out forwards"
-      },
-      backgroundImage: {
-        "hero-gradient":
-          "radial-gradient(circle at top left, rgba(245, 232, 213, 0.9), transparent 55%), radial-gradient(circle at bottom right, rgba(222, 193, 158, 0.65), transparent 50%)"
+        "fade-up": "fade-up 0.7s ease-out forwards",
+        "fade-in": "fade-in 0.45s ease-out forwards",
+        shimmer: "shimmer 2s linear infinite"
       }
     }
   },
-  plugins: []
+  plugins: [require("tailwindcss-animate")]
 };
