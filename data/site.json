@@ -1,10 +1,13 @@
 {
   "brand": "PM BY MADI",
+  "slogan": "Премиальный перманентный макияж в Москве",
   "city": "Москва",
-  "country": "RU",
+  "address": "Москва, Трубная улица, 25",
+  "countryCode": "RU",
+  "whatsapp": "https://wa.me/79999999999",
   "telegram": "https://t.me/pm_by_madi",
-  "phone": "",
-  "instagram": "",
+  "instagram": "https://www.instagram.com/pm.by.madi",
+  "phone": "+7 (999) 999-99-99",
   "email": "hello@pm-by-madi.com",
-  "ctaText": "Записаться в Telegram"
+  "ctaText": "Записаться"
 }

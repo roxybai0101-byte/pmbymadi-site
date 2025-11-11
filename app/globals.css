@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --header-height: 84px;
+    background-color: theme("colors.ivory");
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory text-ink antialiased;
+    font-feature-settings: "liga" 1, "kern" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-serif tracking-tight text-ink;
+  }
+
+  main {
+    padding-top: var(--header-height);
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .glass-card {
+    @apply rounded-[32px] border border-white/60 bg-white/70 backdrop-blur-xl transition-all duration-500 ease-out;
+  }
+
+  .gradient-border {
+    background:
+      linear-gradient(theme("colors.ivory"), theme("colors.ivory")) padding-box,
+      linear-gradient(135deg, rgba(201, 165, 129, 0.6), rgba(255, 255, 255, 0.3)) border-box;
+    border: 1px solid transparent;
+    border-radius: 32px;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/70 px-4 py-2 text-xs uppercase tracking-[0.4em] text-ink/60;
+  }
+
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.4em] text-ink/50;
+  }
+}
+
+@layer utilities {
+  .mask-gradient {
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0));
+  }
+}

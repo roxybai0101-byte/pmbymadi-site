@@ -1,5 +1,5 @@
 import Button from "./Button";
-import { cn } from "../lib/utils";
+import { cn } from "@/lib/utils";
 
 function CTA({
   headline,

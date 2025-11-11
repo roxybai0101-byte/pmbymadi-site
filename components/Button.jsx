@@ -1,23 +1,21 @@
 import { forwardRef } from "react";
-import { cn } from "../lib/utils";
+import { cn } from "@/lib/utils";
 
 const variantClasses = {
   primary:
-    "bg-ink text-ivory hover:bg-ink/90 shadow-glow hover:shadow-soft hover:-translate-y-0.5",
+    "bg-sand-600 text-ivory shadow-glow hover:bg-sand-500 hover:shadow-soft focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sand-400",
   secondary:
-    "bg-sand-200 text-ink hover:bg-sand-100 border border-sand-300/70 shadow-soft",
-  outline:
-    "border border-ink/20 text-ink hover:border-ink/40 hover:bg-ink/5 backdrop-blur",
+    "bg-white text-ink border border-sand-200/80 shadow-soft hover:bg-sand-50 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sand-200",
   ghost:
-    "bg-transparent text-ink hover:bg-ink/5 border border-transparent hover:border-ink/10",
-  subtle:
-    "bg-white/60 text-ink hover:bg-white/80 border border-white/70 shadow-soft"
+    "bg-transparent text-ink/80 hover:text-ink focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink/30",
+  outline:
+    "bg-transparent text-ink border border-ink/15 hover:border-ink/40 hover:bg-ink/5 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ink/20"
 };
 
 const sizeClasses = {
-  sm: "px-4 py-2 text-xs uppercase tracking-[0.2em]",
-  md: "px-6 py-3 text-xs md:text-sm uppercase tracking-[0.28em]",
-  lg: "px-8 py-4 text-sm md:text-base uppercase tracking-[0.32em]"
+  sm: "px-4 py-2 text-xs uppercase tracking-[0.28em]",
+  md: "px-6 py-3 text-xs md:text-sm uppercase tracking-[0.32em]",
+  lg: "px-7 py-[14px] text-sm md:text-base uppercase tracking-[0.36em]"
 };
 
 const Button = forwardRef(function Button(
@@ -31,9 +29,8 @@ const Button = forwardRef(function Button(
   const componentProps = {
     ref,
     className: cn(
-      "inline-flex items-center justify-center gap-2 rounded-full transition-transform duration-300 ease-out",
-      "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink/40",
-      "disabled:opacity-60 disabled:cursor-not-allowed",
+      "inline-flex items-center justify-center gap-2 rounded-full transition-all duration-300 ease-out",
+      "focus-visible:outline-none disabled:pointer-events-none disabled:opacity-60",
       variantClasses[variant] ?? variantClasses.primary,
       sizeClasses[size] ?? sizeClasses.md,
       className
