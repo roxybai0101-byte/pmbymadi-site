@@ -100,11 +100,16 @@ export default function HomePage() {
               className="group relative overflow-hidden rounded-[26px] border border-white/70 bg-white/60 shadow-soft"
             >
               <img
-                src={src}
-                alt={Работа ${index + 1}}
-                className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                loading="lazy"
-              />
+  src={src}
+  alt={Работа ${index + 1}}
+  className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+  loading="lazy"
+  decoding="async"
+  onError={(e) => {
+    console.error("Не найдена картинка:", src);
+    e.currentTarget.src = "/og-image.svg"; // временный плейсхолдер
+  }}
+/>
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <span className="text-lg uppercase tracking-[0.6em] text-ink/20">
                   Before / After
