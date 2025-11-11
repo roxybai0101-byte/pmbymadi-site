@@ -1,0 +1,197 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+}
+
+enum SubmissionType {
+  BOOKING
+  QUESTION
+}
+
+enum SubmissionStatus {
+  NEW
+  IN_PROGRESS
+  COMPLETED
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  passwordHash String
+  role         UserRole @default(ADMIN)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model ServiceCategory {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  order       Int       @default(0)
+  services    Service[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Service {
+  id               String            @id @default(cuid())
+  categoryId       String
+  category         ServiceCategory   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  title            String
+  slug             String            @unique
+  excerpt          String?
+  description      String?
+  preparation      String?
+  contraindications String?
+  aftercare        String?
+  isFeatured       Boolean           @default(false)
+  imageUrl         String?
+  spotlightText    String?
+  duration         String?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  prices           Price[]
+  portfolioItems   PortfolioItem[]
+  reviews          Review[]
+  submissions      Submission[]
+
+  @@index([categoryId])
+}
+
+model Price {
+  id          String   @id @default(cuid())
+  serviceId   String?
+  service     Service? @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  title       String
+  amount      Int
+  description String?
+  duration    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([serviceId])
+}
+
+model Media {
+  id             String          @id @default(cuid())
+  title          String?
+  alt            String?
+  url            String          @unique
+  width          Int?
+  height         Int?
+  size           Int?
+  mimeType       String?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  portfolioItems PortfolioItem[]
+  posts          Post[]
+}
+
+model PortfolioItem {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  imageId     String?
+  image       Media?   @relation(fields: [imageId], references: [id], onDelete: SetNull)
+  serviceId   String?
+  service     Service? @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([serviceId])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  name      String
+  rating    Int      @default(5)
+  content   String
+  source    String?
+  serviceId String?
+  service   Service? @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([serviceId])
+}
+
+model Promo {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  details     String?
+  imageUrl    String?
+  isActive    Boolean  @default(true)
+  startsAt    DateTime?
+  endsAt      DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Post {
+  id            String   @id @default(cuid())
+  title         String
+  slug          String   @unique
+  excerpt       String?
+  content       String
+  coverId       String?
+  cover         Media?   @relation(fields: [coverId], references: [id], onDelete: SetNull)
+  publishedAt   DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Page {
+  id              String   @id @default(cuid())
+  title           String
+  slug            String   @unique
+  description     String?
+  content         String
+  metaTitle       String?
+  metaDescription String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model FaqItem {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Submission {
+  id        String           @id @default(cuid())
+  type      SubmissionType   @default(BOOKING)
+  status    SubmissionStatus @default(NEW)
+  name      String
+  contact   String
+  message   String?
+  serviceId String?
+  service   Service?         @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+
+  @@index([serviceId])
+}
+
+model Setting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

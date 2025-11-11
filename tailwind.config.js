@@ -1,59 +1,106 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-      "./app/**/*.{js,jsx,ts,tsx,md,mdx}",
-      "./components/**/*.{js,jsx,ts,tsx}",
-      "./pages/**/*.{js,jsx,ts,tsx}",
-      "./src/**/*.{js,jsx,ts,tsx}"
-    ],
+  darkMode: ["class"],
+  content: [
+    "./app/**/*.{ts,tsx,mdx}",
+    "./components/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+    "./data/**/*.{ts,tsx}"
+  ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1280px"
+      }
+    },
     extend: {
       colors: {
-        sand: {
-          50: "#fdf9f3",
-          100: "#f6ebdd",
-          200: "#ecd9c1",
-          300: "#dfc1a1",
-          400: "#c9a581",
-          500: "#b38b66",
-          600: "#997454",
-          700: "#7c5a44",
-          800: "#654838",
-          900: "#533c30"
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))"
         },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))"
+        },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))"
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))"
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))"
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))"
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))"
+        },
+        borderMuted: "rgba(88, 74, 61, 0.12)",
         ink: "#1f1b18",
-        ivory: "#faf6f0"
+        ivory: "#f8f4ef",
+        sand: {
+          50: "#fdf9f5",
+          100: "#f7ede4",
+          200: "#ecd9c7",
+          300: "#dcbca2",
+          400: "#c79a7a",
+          500: "#b07d5f",
+          600: "#90634b",
+          700: "#734d3d",
+          800: "#5c3d32",
+          900: "#4b332a"
+        }
       },
       fontFamily: {
-        serif: ["var(--font-serif)", "serif"],
-        sans: ["var(--font-sans)", "sans-serif"]
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+        serif: ["var(--font-serif)", ...fontFamily.serif]
       },
       boxShadow: {
-        soft: "0 20px 45px rgba(31, 27, 24, 0.08)",
-        glow: "0 15px 35px rgba(201, 165, 129, 0.25)"
+        soft: "0 24px 60px rgba(43, 34, 28, 0.12)",
+        glow: "0 16px 40px rgba(192, 156, 124, 0.25)"
       },
       borderRadius: {
-        xl: "1.5rem"
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 8px)"
       },
       keyframes: {
-        "fade-up": {
-          "0%": { opacity: 0, transform: "translateY(24px)" },
-          "100%": { opacity: 1, transform: "translateY(0)" }
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" }
         },
-        "fade-in": {
-          "0%": { opacity: 0 },
-          "100%": { opacity: 1 }
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 }
+        },
+        fade: {
+          from: { opacity: 0 },
+          to: { opacity: 1 }
         }
       },
       animation: {
-        "fade-up": "fade-up 0.8s ease-out forwards",
-        "fade-in": "fade-in 0.6s ease-out forwards"
-      },
-      backgroundImage: {
-        "hero-gradient":
-          "radial-gradient(circle at top left, rgba(245, 232, 213, 0.9), transparent 55%), radial-gradient(circle at bottom right, rgba(222, 193, 158, 0.65), transparent 50%)"
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        fade: "fade 0.6s ease-in-out"
       }
     }
   },
-  plugins: []
+  plugins: [require("tailwindcss-animate")]
 };
